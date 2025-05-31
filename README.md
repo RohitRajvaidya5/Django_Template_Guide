@@ -53,7 +53,7 @@ TEMPLATES = [
 
 ## 🗃️ 4. Recommended Project Structure
 
-```
+```python
 project_root/
 │
 ├── manage.py
@@ -80,11 +80,13 @@ STATICFILES_DIRS = [
 ### Step 2: Load Static Files in Templates
 
 - Add at the **top** of your HTML file:
+  
 ```django
 {% load static %}
 ```
 
 - Link a CSS file using:
+  
 ```html
 <link rel="stylesheet" href="{% static 'style.css' %}">
 ```
@@ -106,11 +108,11 @@ def home(request):
 
 ## ✅ Summary Checklist
 
-- [x] Create `Templates/` and `static/` folders in the root directory.
-- [x] Configure `TEMPLATES['DIRS']` in `settings.py`.
-- [x] Configure `STATICFILES_DIRS` in `settings.py`.
-- [x] Use `{% load static %}` and `{% static 'file' %}` in templates.
-- [x] Use `render()` to return templates from views.
+- [ ] Create `Templates/` and `static/` folders in the root directory.
+- [ ] Configure `TEMPLATES['DIRS']` in `settings.py`.
+- [ ] Configure `STATICFILES_DIRS` in `settings.py`.
+- [ ] Use `{% load static %}` and `{% static 'file' %}` in templates.
+- [ ] Use `render()` to return templates from views.
 
 ---
 
