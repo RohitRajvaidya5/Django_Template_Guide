@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Django stuff
+*.log
+db.sqlite3
+*.pot
+*.pyc
+*.pyo
+
+# Django migrations
+**/migrations/
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Static files
+staticfiles/
+static/
+
+# Media files (if added later)
+media/
+
+# VS Code settings
+.vscode/
+
+# macOS and Linux system files
+.DS_Store
+Thumbs.db
+
+# Git itself
+*.swp
+*.swo
