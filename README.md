@@ -116,4 +116,119 @@ def home(request):
 
 ---
 
+## Creating a New Django App with Template & Extends
+
+### 1. Create a New App
+
+Use the following command to create a new Django app:
+
+```bash
+django-admin startapp <app_name>
+```
+
+---
+
+### 2. Template Folder Setup (Two Options)
+
+You can choose one of the following options to add the `templates` folder:
+
+**Option 1:**  
+Add the `templates` folder inside the **project root folder**.
+
+```path
+project_root/
+    templates/
+        your_templates_here/
+```
+
+**Option 2:**  
+Insert the `templates` folder inside the **app folder**.
+
+```path
+app_name/
+    templates/
+        app_name/
+            your_templates_here/
+```
+
+Make sure your Django settings are updated to look for templates in the correct directories.
+
+---
+
+### 3. URL Configuration
+
+- Add a `urls.py` file in the **app folder**.
+- In **project root `settings.py`**:
+  - Add the app name to `INSTALLED_APPS`.
+- In **project root `urls.py`**:
+  - Include the app’s `urls.py` using `include()`.
+
+```python
+# project/urls.py
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('app_name/', include('app_name.urls')),
+]
+```
+
+---
+
+### 4. Template and Static File Access
+
+- Ensure the `DIRS` option in the `TEMPLATES` setting includes the correct template paths.
+- Django will fetch:
+  - Templates from either the **app’s `templates` folder** or the **root `templates` folder**.
+  - Static files from the configured `static/` folders.
+
+```python
+# settings.py
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [BASE_DIR / 'templates'],
+        ...
+    },
+]
+```
+
+---
+
+### 5. Add Shared Templates (e.g., Navbar)
+
+- Add commonly used HTML files like `navbar.html` inside the **project root `templates/` folder**.
+
+**Folder Structure Example:**
+
+```path
+project_root/
+│
+├── project/
+│   └── settings.py
+│
+├── templates/
+│   ├── navbar.html
+│   └── another_template.html
+```
+
+**Remaining Structure:**
+
+```path
+static/
+app_name/
+├── templates/
+│   └── app_name/
+│       └── html_files_here.html
+```
+
+---
+
+### ✅ Notes
+
+- Always use app-specific folders inside `templates/` to avoid conflicts.
+- Don't forget to load static files in your HTML using `{% load static %}` and set up the `STATICFILES_DIRS` if needed.
+
+---
+
 Happy Coding! 🚀
